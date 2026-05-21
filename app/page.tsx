@@ -7,7 +7,6 @@ import ProductCard from '@/components/ProductCard'
 export const metadata: Metadata = {
   title: 'Joda Beauty Line | Luxury Perfumes & Colognes | Worldwide Shipping',
   description: "Discover Joda Beauty Line — premium perfumes and colognes crafted with fine ingredients. Shop ROS, Soie d'Or Oud, Le Mot, and more. Worldwide shipping available.",
-  <meta name="google-site-verification" content="OOqnBVJmSJlnce7fyixTMecnxjeSGMU9jfXWbmKYaOA" />
 }
 
 const MODEL_ROS = '/images/handsome-man-looking-away-outside.jpg'
