@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Discover Joda Beauty Line — premium perfumes and colognes crafted with fine ingredients. Shop ROS, Soie d'Or Oud, Le Mot, and more. Worldwide shipping available.",
 }
 
-const MODEL_ROS = '/images/handsome-man-looking-away-outside.webp'
+const MODEL_ROS = '/images/handsome-man-looking-away-outside.jpg'
 const MODEL_SOIE = '/images/portrait-handsome-model-modern-male-resized.jpg'
 
 export default function HomePage() {
