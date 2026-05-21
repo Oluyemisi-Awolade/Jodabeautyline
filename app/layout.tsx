@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
   },
   verification: {
-    google: 'YOUR_GOOGLE_SEARCH_CONSOLE_CODE', // Replace after registering on Google Search Console
+    google: 'OOqnBVJmSJlnce7fyixTMecnxjeSGMU9jfXWbmKYaOA', // Replace after registering on Google Search Console
   },
 }
 
