@@ -9,15 +9,61 @@ export const metadata: Metadata = {
   description: "Discover Joda Beauty Line — premium perfumes and colognes crafted with fine ingredients. Shop ROS, Soie d'Or Oud, Le Mot, and more. Worldwide shipping available.",
 }
 
-const MODEL_ROS = 'https://images.unsplash.com/photo-1508243771214-6e95d137426b?w=900&q=85&fit=crop&crop=top'
-const MODEL_SOIE = 'https://plus.unsplash.com/premium_photo-1670588776066-0048a8d5415c?w=900&q=85&fit=crop&crop=top'
+const MODEL_ROS = '/images/handsome-man-looking-away-outside.webp'
+const MODEL_SOIE = '/images/portrait-handsome-model-modern-male-resized.jpg'
 
 export default function HomePage() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-screen bg-[#0a0806] flex items-center overflow-hidden">
+      {/* HERO — Animated moving gradient */}
+      <section className="relative min-h-screen flex items-center overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, #0a0806 0%, #1a120a 25%, #2a1a0a 50%, #1a0f08 75%, #0a0806 100%)',
+          backgroundSize: '400% 400%',
+          animation: 'gradientShift 12s ease infinite',
+        }}
+      >
+        <style>{`
+          @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+          }
+          @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+          }
+          @keyframes shimmer {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.3; }
+          }
+        `}</style>
+
+        {/* Animated gold orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div style={{
+            position: 'absolute', top: '20%', right: '15%',
+            width: '300px', height: '300px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(201,151,58,0.15) 0%, transparent 70%)',
+            animation: 'float 6s ease-in-out infinite',
+          }} />
+          <div style={{
+            position: 'absolute', bottom: '30%', left: '10%',
+            width: '200px', height: '200px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(201,151,58,0.1) 0%, transparent 70%)',
+            animation: 'float 8s ease-in-out infinite 2s',
+          }} />
+          <div style={{
+            position: 'absolute', top: '60%', right: '30%',
+            width: '150px', height: '150px', borderRadius: '50%',
+            background: 'radial-gradient(circle, rgba(201,151,58,0.08) 0%, transparent 70%)',
+            animation: 'shimmer 4s ease-in-out infinite',
+          }} />
+        </div>
+
         <div className="absolute left-[10%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#c9973a]/30 to-transparent hidden lg:block" />
+
         <div className="relative max-w-6xl mx-auto px-5 pt-28 pb-20">
           <div className="max-w-2xl">
             <div className="font-mono-dm text-[10px] tracking-[0.3em] uppercase text-[#c9973a] mb-8">
@@ -31,7 +77,8 @@ export default function HomePage() {
               Premium perfumes and colognes crafted with the finest ingredients — for those who understand that a great fragrance is the most intimate form of self-expression.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="/perfumes" className="font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-8 py-4 hover:bg-[#e4bc58] transition-colors duration-200">
+              <Link href="/perfumes"
+                className="font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-8 py-4 hover:bg-[#e4bc58] transition-colors duration-200">
                 Explore Collection
               </Link>
               <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
@@ -41,6 +88,7 @@ export default function HomePage() {
             </div>
           </div>
         </div>
+
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
           <div className="font-mono-dm text-[8px] tracking-[0.3em] uppercase text-[#3d3328]">Scroll</div>
           <div className="w-px h-8 bg-gradient-to-b from-[#3d3328] to-transparent" />
@@ -70,12 +118,17 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-2 gap-6">
 
-            {/* ROS — Brown skin male */}
+            {/* ROS — Black male model */}
             <div className="relative group overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              <Image src={MODEL_ROS} alt="Joda Beauty Line ROS Cologne for men" fill
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/30 to-transparent" />
-              <div className="absolute bottom-36 left-8 w-28 h-40 drop-shadow-2xl">
+              <Image
+                src={MODEL_ROS}
+                alt="Joda Beauty Line ROS Cologne — for the confident man"
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/20 to-transparent" />
+              <div className="absolute bottom-40 left-6 w-32 h-44"
+                style={{ mixBlendMode: 'multiply', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }}>
                 <Image src="/images/ros.jpg" alt="ROS Cologne by Joda Beauty Line" fill className="object-contain" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -90,16 +143,21 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Soie d'Or Oud — Couple */}
+            {/* Soie d'Or Oud — Fair male model */}
             <div className="relative group overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              <Image src={MODEL_SOIE} alt="Joda Beauty Line Soie d'Or Oud" fill
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/30 to-transparent" />
-              <div className="absolute bottom-36 left-8 w-28 h-40 drop-shadow-2xl">
+              <Image
+                src={MODEL_SOIE}
+                alt="Joda Beauty Line Soie d'Or Oud — timeless elegance"
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/20 to-transparent" />
+              <div className="absolute bottom-40 left-6 w-32 h-44"
+                style={{ mixBlendMode: 'multiply', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }}>
                 <Image src="/images/soie.jpg" alt="Soie d'Or Oud by Joda Beauty Line" fill className="object-contain" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="font-mono-dm text-[9px] tracking-[0.2em] uppercase text-[#c9973a] mb-2">Their Signature</div>
+                <div className="font-mono-dm text-[9px] tracking-[0.2em] uppercase text-[#c9973a] mb-2">His Signature</div>
                 <div className="font-display text-3xl font-light text-[#f5f0e8] mb-1">Soie d&apos;Or Oud</div>
                 <p className="text-[#9a8e7e] text-sm mb-5">Silken oud, smooth as silk, luminous as sunrise.</p>
                 <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I want to order Soie d'Or Oud")}`}
@@ -128,7 +186,8 @@ export default function HomePage() {
             <p className="text-[#6b6460] leading-relaxed mb-8">
               Wherever you are in the world, we deliver directly to your door — with secure packaging and the care your order deserves.
             </p>
-            <Link href="/perfumes" className="font-mono-dm text-[10px] tracking-[0.2em] uppercase border-b border-[#c9973a] text-[#0a0806] pb-0.5 hover:text-[#c9973a] transition-colors">
+            <Link href="/perfumes"
+              className="font-mono-dm text-[10px] tracking-[0.2em] uppercase border-b border-[#c9973a] text-[#0a0806] pb-0.5 hover:text-[#c9973a] transition-colors">
               View All Fragrances →
             </Link>
           </div>
@@ -157,7 +216,8 @@ export default function HomePage() {
                 Signature<br /><span className="italic">Fragrances</span>
               </h2>
             </div>
-            <Link href="/perfumes" className="hidden md:block font-mono-dm text-[10px] tracking-[0.2em] uppercase text-[#6b6460] hover:text-[#c9973a] transition-colors border-b border-current pb-0.5">
+            <Link href="/perfumes"
+              className="hidden md:block font-mono-dm text-[10px] tracking-[0.2em] uppercase text-[#6b6460] hover:text-[#c9973a] transition-colors border-b border-current pb-0.5">
               See All 5 →
             </Link>
           </div>
@@ -167,7 +227,8 @@ export default function HomePage() {
             ))}
           </div>
           <div className="text-center mt-10 md:hidden">
-            <Link href="/perfumes" className="font-mono-dm text-[10px] tracking-[0.2em] uppercase border border-[#0a0806] text-[#0a0806] px-8 py-3 inline-block">
+            <Link href="/perfumes"
+              className="font-mono-dm text-[10px] tracking-[0.2em] uppercase border border-[#0a0806] text-[#0a0806] px-8 py-3 inline-block">
               See All Fragrances
             </Link>
           </div>
@@ -201,7 +262,12 @@ export default function HomePage() {
             Contact us directly on WhatsApp or Email. We will confirm availability, shipping rates, and payment options — personally.
           </p>
           <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3 mb-10">
-            {[['WhatsApp','+234 913 847 9374'],['Email','jodabeautyline@gmail.com'],['Shipping','Worldwide · 21–28 days'],['Hours','Mon–Fri 9am–5pm WAT']].map(([label, value]) => (
+            {[
+              ['WhatsApp','+234 913 847 9374'],
+              ['Email','jodabeautyline@gmail.com'],
+              ['Shipping','Worldwide · 21–28 days'],
+              ['Hours','Mon–Fri 9am–5pm WAT'],
+            ].map(([label, value]) => (
               <div key={label} className="bg-[#161310] border border-[#2e2820] p-4 text-left">
                 <div className="font-mono-dm text-[8px] tracking-[0.2em] uppercase text-[#c9973a] mb-1">{label}</div>
                 <div className="text-sm text-[#c8c0b0]">{value}</div>
