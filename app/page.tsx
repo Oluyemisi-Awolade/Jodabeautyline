@@ -15,154 +15,161 @@ const MODEL_SOIE = '/images/portrait-handsome-model-modern-male-resized.jpg'
 export default function HomePage() {
   return (
     <>
-      {/* HERO — Animated moving gradient */}
-      <section className="relative min-h-screen flex items-center overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, #0a0806 0%, #1a120a 25%, #2a1a0a 50%, #1a0f08 75%, #0a0806 100%)',
-          backgroundSize: '400% 400%',
-          animation: 'gradientShift 12s ease infinite',
-        }}
+      {/* ── HERO ── */}
+      <section
+        className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+        style={{ background: 'linear-gradient(160deg, #0a0806 0%, #1c1208 40%, #2a1a08 65%, #0a0806 100%)' }}
       >
         <style>{`
-          @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+          @keyframes floatBottle {
+            0%,100% { transform: translateY(0px) scale(1); }
+            50%      { transform: translateY(-16px) scale(1.02); }
           }
-          @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+          @keyframes fadeUp {
+            from { opacity:0; transform:translateY(24px); }
+            to   { opacity:1; transform:translateY(0); }
           }
-          @keyframes shimmer {
-            0% { opacity: 0.3; }
-            50% { opacity: 0.7; }
-            100% { opacity: 0.3; }
-          }
+          .anim-1 { animation: fadeUp .9s ease .1s both; }
+          .anim-2 { animation: fadeUp .9s ease .3s both; }
+          .anim-3 { animation: fadeUp .9s ease .5s both; }
+          .anim-4 { animation: fadeUp .9s ease .7s both; }
+          .bottle-float { animation: floatBottle 5s ease-in-out 1s infinite; }
         `}</style>
 
-        {/* Animated gold orbs */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div style={{
-            position: 'absolute', top: '20%', right: '15%',
-            width: '300px', height: '300px', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(201,151,58,0.15) 0%, transparent 70%)',
-            animation: 'float 6s ease-in-out infinite',
-          }} />
-          <div style={{
-            position: 'absolute', bottom: '30%', left: '10%',
-            width: '200px', height: '200px', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(201,151,58,0.1) 0%, transparent 70%)',
-            animation: 'float 8s ease-in-out infinite 2s',
-          }} />
-          <div style={{
-            position: 'absolute', top: '60%', right: '30%',
-            width: '150px', height: '150px', borderRadius: '50%',
-            background: 'radial-gradient(circle, rgba(201,151,58,0.08) 0%, transparent 70%)',
-            animation: 'shimmer 4s ease-in-out infinite',
-          }} />
-        </div>
+        {/* warm glow */}
+        <div className="absolute inset-0 pointer-events-none"
+          style={{ background: 'radial-gradient(ellipse 60% 50% at 75% 55%, rgba(201,151,58,0.18) 0%, transparent 70%)' }} />
 
-        <div className="absolute left-[10%] top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#c9973a]/30 to-transparent hidden lg:block" />
+        <div className="relative max-w-6xl mx-auto w-full px-6 pt-28 pb-24
+                        flex flex-col md:flex-row items-center gap-12 md:gap-6">
 
-        <div className="relative max-w-6xl mx-auto px-5 pt-28 pb-20">
-          <div className="max-w-2xl">
-            <div className="font-mono-dm text-[10px] tracking-[0.3em] uppercase text-[#c9973a] mb-8">
+          {/* ── LEFT: copy ── */}
+          <div className="flex-1 z-10 text-center md:text-left">
+            <p className="anim-1 font-mono text-[10px] tracking-[0.32em] uppercase text-[#c9973a] mb-6">
               Luxury Fragrances · Worldwide Shipping
-            </div>
-            <h1 className="font-display text-6xl md:text-8xl font-light text-[#f5f0e8] leading-none mb-6">
-              Scent is<br />
-              <span className="italic text-[#c9973a]">memory.</span>
-            </h1>
-            <p className="text-[#9a8e7e] text-lg leading-relaxed mb-10 max-w-lg">
-              Premium perfumes and colognes crafted with the finest ingredients — for those who understand that a great fragrance is the most intimate form of self-expression.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <h1 className="anim-2 font-serif text-[3.4rem] sm:text-7xl md:text-8xl font-light text-[#f5f0e8] leading-none mb-6">
+              Scent is<br />
+              <em className="text-[#c9973a]" style={{fontStyle:'italic'}}>memory.</em>
+            </h1>
+            <p className="anim-3 text-[#9a8e7e] text-base sm:text-lg leading-relaxed mb-10 max-w-md mx-auto md:mx-0">
+              Premium perfumes and colognes crafted with the finest ingredients — for those who understand that a great fragrance is the most intimate form of self‑expression.
+            </p>
+            <div className="anim-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Link href="/perfumes"
-                className="font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-8 py-4 hover:bg-[#e4bc58] transition-colors duration-200">
+                className="font-mono text-[10px] tracking-[0.22em] uppercase bg-[#c9973a] text-[#0a0806] px-8 py-4 hover:bg-[#e4bc58] transition-colors">
                 Explore Collection
               </Link>
               <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
-                className="font-mono-dm text-[10px] tracking-[0.2em] uppercase border border-[#c9973a] text-[#c9973a] px-8 py-4 hover:bg-[#c9973a] hover:text-[#0a0806] transition-colors duration-200">
+                className="font-mono text-[10px] tracking-[0.22em] uppercase border border-[#c9973a] text-[#c9973a] px-8 py-4 hover:bg-[#c9973a] hover:text-[#0a0806] transition-colors">
                 Order on WhatsApp
               </a>
             </div>
           </div>
+
+          {/* ── RIGHT: bottle on dark panel ── */}
+          <div className="flex-1 flex justify-center md:justify-end relative">
+            {/* dark card so multiply works perfectly */}
+            <div className="relative w-[260px] sm:w-[300px] md:w-[340px]"
+              style={{ aspectRatio: '3/4' }}>
+              {/* glow ring */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div style={{
+                  width:'240px', height:'240px', borderRadius:'50%',
+                  background:'radial-gradient(circle, rgba(201,151,58,0.3) 0%, transparent 65%)',
+                  filter:'blur(36px)',
+                }} />
+              </div>
+              {/* bottle — multiply removes any white bg */}
+              <div className="bottle-float relative w-full h-full">
+                <Image
+                  src="/images/ros.jpg"
+                  alt="ROS Cologne by Joda Beauty Line"
+                  fill
+                  className="object-contain"
+                  style={{ mixBlendMode:'multiply', filter:'drop-shadow(0 30px 50px rgba(0,0,0,0.9))' }}
+                  priority
+                />
+              </div>
+              {/* label badge */}
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-2
+                              bg-[#0a0806]/80 border border-[#c9973a]/40 px-5 py-3 text-center backdrop-blur-sm whitespace-nowrap">
+                <div className="font-mono text-[8px] tracking-[0.25em] uppercase text-[#c9973a]">Featured Scent</div>
+                <div className="font-serif text-xl text-[#f5f0e8] mt-0.5">ROS</div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <div className="font-mono-dm text-[8px] tracking-[0.3em] uppercase text-[#3d3328]">Scroll</div>
-          <div className="w-px h-8 bg-gradient-to-b from-[#3d3328] to-transparent" />
+        {/* scroll cue */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+          <div className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#3d3328]">Scroll</div>
+          <div className="w-px h-7 bg-gradient-to-b from-[#3d3328] to-transparent" />
         </div>
       </section>
 
-      {/* TRUST BAR */}
+      {/* ── TRUST BAR ── */}
       <section className="bg-[#0a0806] border-y border-[#1e1a16]">
         <div className="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-[#1e1a16]">
           {[['100%','Authentic'],['Global','Shipping'],['Premium','Ingredients'],['5','Signature Scents']].map(([val, label]) => (
             <div key={label} className="text-center py-2 px-4">
-              <div className="font-display text-xl font-light text-[#c9973a]">{val}</div>
-              <div className="font-mono-dm text-[9px] tracking-[0.18em] uppercase text-[#3d3328] mt-1">{label}</div>
+              <div className="font-serif text-xl font-light text-[#c9973a]">{val}</div>
+              <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-[#3d3328] mt-1">{label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* MODEL SECTION — Louis Vuitton style */}
+      {/* ── MODEL SECTION ── */}
       <section className="bg-[#0e0c0a] py-24 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-14">
-            <div className="font-mono-dm text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-4">For Everyone</div>
-            <h2 className="font-display text-5xl font-light text-[#f5f0e8] leading-tight">
-              Wear your <span className="italic text-[#c9973a]">signature.</span>
+            <div className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-4">For Everyone</div>
+            <h2 className="font-serif text-5xl font-light text-[#f5f0e8] leading-tight">
+              Wear your <em className="text-[#c9973a]">signature.</em>
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6">
 
-            {/* ROS — Black male model */}
+            {/* ROS */}
             <div className="relative group overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              <Image
-                src={MODEL_ROS}
-                alt="Joda Beauty Line ROS Cologne — for the confident man"
-                fill
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/20 to-transparent" />
-              <div className="absolute bottom-40 left-6 w-32 h-44"
-                style={{ mixBlendMode: 'multiply', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }}>
-                <Image src="/images/ros.jpg" alt="ROS Cologne by Joda Beauty Line" fill className="object-contain" />
+              <Image src={MODEL_ROS} alt="Model wearing ROS Cologne by Joda Beauty Line"
+                fill className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+              {/* dark gradient overlay so multiply blend works on bottle */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/30 to-[#0a0806]/10" />
+              {/* bottle — no white box because background under it is dark */}
+              <div className="absolute bottom-36 left-1/2 -translate-x-1/2 w-28 h-40"
+                style={{ mixBlendMode:'multiply', filter:'drop-shadow(0 10px 30px rgba(0,0,0,1))' }}>
+                <Image src="/images/ros.jpg" alt="ROS Cologne bottle" fill className="object-contain" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="font-mono-dm text-[9px] tracking-[0.2em] uppercase text-[#c9973a] mb-2">His Signature</div>
-                <div className="font-display text-3xl font-light text-[#f5f0e8] mb-1">ROS</div>
+                <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#c9973a] mb-2">His Signature</div>
+                <div className="font-serif text-3xl font-light text-[#f5f0e8] mb-1">ROS</div>
                 <p className="text-[#9a8e7e] text-sm mb-5">Calm and refreshing. Confident, clean, unforgettable.</p>
                 <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I want to order ROS Cologne")}`}
                   target="_blank" rel="noopener noreferrer"
-                  className="inline-block font-mono-dm text-[9px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-6 py-3 hover:bg-[#e4bc58] transition-colors">
+                  className="inline-block font-mono text-[9px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-6 py-3 hover:bg-[#e4bc58] transition-colors">
                   Order Now
                 </a>
               </div>
             </div>
 
-            {/* Soie d'Or Oud — Fair male model */}
+            {/* Soie d'Or Oud */}
             <div className="relative group overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              <Image
-                src={MODEL_SOIE}
-                alt="Joda Beauty Line Soie d'Or Oud — timeless elegance"
-                fill
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/20 to-transparent" />
-              <div className="absolute bottom-40 left-6 w-32 h-44"
-                style={{ mixBlendMode: 'multiply', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }}>
-                <Image src="/images/soie.jpg" alt="Soie d'Or Oud by Joda Beauty Line" fill className="object-contain" />
+              <Image src={MODEL_SOIE} alt="Model wearing Soie d'Or Oud by Joda Beauty Line"
+                fill className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/30 to-[#0a0806]/10" />
+              <div className="absolute bottom-36 left-1/2 -translate-x-1/2 w-28 h-40"
+                style={{ mixBlendMode:'multiply', filter:'drop-shadow(0 10px 30px rgba(0,0,0,1))' }}>
+                <Image src="/images/soie.jpg" alt="Soie d'Or Oud bottle" fill className="object-contain" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
-                <div className="font-mono-dm text-[9px] tracking-[0.2em] uppercase text-[#c9973a] mb-2">His Signature</div>
-                <div className="font-display text-3xl font-light text-[#f5f0e8] mb-1">Soie d&apos;Or Oud</div>
+                <div className="font-mono text-[9px] tracking-[0.2em] uppercase text-[#c9973a] mb-2">His Signature</div>
+                <div className="font-serif text-3xl font-light text-[#f5f0e8] mb-1">Soie d&apos;Or Oud</div>
                 <p className="text-[#9a8e7e] text-sm mb-5">Silken oud, smooth as silk, luminous as sunrise.</p>
                 <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I want to order Soie d'Or Oud")}`}
                   target="_blank" rel="noopener noreferrer"
-                  className="inline-block font-mono-dm text-[9px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-6 py-3 hover:bg-[#e4bc58] transition-colors">
+                  className="inline-block font-mono text-[9px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-6 py-3 hover:bg-[#e4bc58] transition-colors">
                   Order Now
                 </a>
               </div>
@@ -172,13 +179,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ABOUT */}
+      {/* ── ABOUT ── */}
       <section className="py-24 bg-[#faf7f2]">
         <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-16 items-center">
           <div>
-            <div className="font-mono-dm text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-5">About Us</div>
-            <h2 className="font-display text-5xl font-light text-[#0a0806] leading-tight mb-6">
-              Crafted for those<br /><span className="italic">who remember.</span>
+            <div className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-5">About Us</div>
+            <h2 className="font-serif text-5xl font-light text-[#0a0806] leading-tight mb-6">
+              Crafted for those<br /><em>who remember.</em>
             </h2>
             <p className="text-[#6b6460] leading-relaxed mb-5">
               Joda Beauty Line was born from a belief that fragrance is more than scent — it is identity, mood, and memory. We create premium perfumes and colognes using fine-quality ingredients, blended with care for a rich, long-lasting experience.
@@ -187,7 +194,7 @@ export default function HomePage() {
               Wherever you are in the world, we deliver directly to your door — with secure packaging and the care your order deserves.
             </p>
             <Link href="/perfumes"
-              className="font-mono-dm text-[10px] tracking-[0.2em] uppercase border-b border-[#c9973a] text-[#0a0806] pb-0.5 hover:text-[#c9973a] transition-colors">
+              className="font-mono text-[10px] tracking-[0.2em] uppercase border-b border-[#c9973a] text-[#0a0806] pb-0.5 hover:text-[#c9973a] transition-colors">
               View All Fragrances →
             </Link>
           </div>
@@ -201,23 +208,23 @@ export default function HomePage() {
             <div className="absolute top-0 left-0 w-2/5 h-2/5 overflow-hidden border-4 border-[#faf7f2]">
               <Image src="/images/ros.jpg" alt="ROS Cologne by Joda Beauty Line" fill className="object-cover" />
             </div>
-            <div className="absolute bottom-8 right-4 font-display text-6xl font-light text-[#c9973a] opacity-20 select-none">JBL</div>
+            <div className="absolute bottom-8 right-4 font-serif text-6xl font-light text-[#c9973a] opacity-20 select-none">JBL</div>
           </div>
         </div>
       </section>
 
-      {/* PRODUCTS */}
+      {/* ── PRODUCTS ── */}
       <section className="py-24 bg-[#f0ece4]">
         <div className="max-w-6xl mx-auto px-5">
           <div className="flex items-end justify-between mb-12">
             <div>
-              <div className="font-mono-dm text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-3">Collection</div>
-              <h2 className="font-display text-5xl font-light text-[#0a0806]">
-                Signature<br /><span className="italic">Fragrances</span>
+              <div className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-3">Collection</div>
+              <h2 className="font-serif text-5xl font-light text-[#0a0806]">
+                Signature<br /><em>Fragrances</em>
               </h2>
             </div>
             <Link href="/perfumes"
-              className="hidden md:block font-mono-dm text-[10px] tracking-[0.2em] uppercase text-[#6b6460] hover:text-[#c9973a] transition-colors border-b border-current pb-0.5">
+              className="hidden md:block font-mono text-[10px] tracking-[0.2em] uppercase text-[#6b6460] hover:text-[#c9973a] transition-colors border-b border-current pb-0.5">
               See All 5 →
             </Link>
           </div>
@@ -228,21 +235,21 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-10 md:hidden">
             <Link href="/perfumes"
-              className="font-mono-dm text-[10px] tracking-[0.2em] uppercase border border-[#0a0806] text-[#0a0806] px-8 py-3 inline-block">
+              className="font-mono text-[10px] tracking-[0.2em] uppercase border border-[#0a0806] text-[#0a0806] px-8 py-3 inline-block">
               See All Fragrances
             </Link>
           </div>
         </div>
       </section>
 
-      {/* INSTAGRAM */}
+      {/* ── INSTAGRAM ── */}
       <section className="py-16 bg-[#faf7f2] border-y border-[#e8e0d0]">
         <div className="max-w-6xl mx-auto px-5 text-center">
-          <div className="font-mono-dm text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-3">Follow Us</div>
-          <h2 className="font-display text-4xl font-light text-[#0a0806] mb-6">@jodabeautyline</h2>
+          <div className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-3">Follow Us</div>
+          <h2 className="font-serif text-4xl font-light text-[#0a0806] mb-6">@jodabeautyline</h2>
           <a href="https://www.instagram.com/jodabeautyline?igsh=amVoOTZvZWgya2k5"
             target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#0a0806] text-[#f5f0e8] px-8 py-4 hover:bg-[#c9973a] hover:text-[#0a0806] transition-colors duration-300">
+            className="inline-flex items-center gap-3 font-mono text-[10px] tracking-[0.2em] uppercase bg-[#0a0806] text-[#f5f0e8] px-8 py-4 hover:bg-[#c9973a] hover:text-[#0a0806] transition-colors duration-300">
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
             </svg>
@@ -251,12 +258,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CONTACT */}
+      {/* ── CONTACT ── */}
       <section id="contact" className="py-24 bg-[#0a0806]">
         <div className="max-w-4xl mx-auto px-5 text-center">
-          <div className="font-mono-dm text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-5">Order Today</div>
-          <h2 className="font-display text-5xl font-light text-[#f5f0e8] mb-6">
-            Place Your<br /><span className="italic text-[#c9973a]">Order</span>
+          <div className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-5">Order Today</div>
+          <h2 className="font-serif text-5xl font-light text-[#f5f0e8] mb-6">
+            Place Your<br /><em className="text-[#c9973a]">Order</em>
           </h2>
           <p className="text-[#6b6460] max-w-xl mx-auto mb-12 leading-relaxed">
             Contact us directly on WhatsApp or Email. We will confirm availability, shipping rates, and payment options — personally.
@@ -269,13 +276,13 @@ export default function HomePage() {
               ['Hours','Mon–Fri 9am–5pm WAT'],
             ].map(([label, value]) => (
               <div key={label} className="bg-[#161310] border border-[#2e2820] p-4 text-left">
-                <div className="font-mono-dm text-[8px] tracking-[0.2em] uppercase text-[#c9973a] mb-1">{label}</div>
+                <div className="font-mono text-[8px] tracking-[0.2em] uppercase text-[#c9973a] mb-1">{label}</div>
                 <div className="text-sm text-[#c8c0b0]">{value}</div>
               </div>
             ))}
           </div>
           <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 font-mono-dm text-[11px] tracking-[0.2em] uppercase bg-green-600 text-white px-10 py-5 hover:bg-green-500 transition-colors duration-200">
+            className="inline-flex items-center gap-3 font-mono text-[11px] tracking-[0.2em] uppercase bg-green-600 text-white px-10 py-5 hover:bg-green-500 transition-colors duration-200">
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
             </svg>
