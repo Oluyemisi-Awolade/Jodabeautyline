@@ -18,12 +18,12 @@ export default function HomePage() {
       {/* ── HERO ── */}
       <section
         className="relative min-h-screen flex flex-col justify-center overflow-hidden"
-        style={{ background: 'linear-gradient(160deg, #0a0806 0%, #1c1208 40%, #2a1a08 65%, #0a0806 100%)' }}
+        style={{ background: 'linear-gradient(160deg, #2c1f0e 0%, #3d2a10 30%, #4a3218 55%, #2c1f0e 100%)' }}
       >
         <style>{`
           @keyframes floatBottle {
-            0%,100% { transform: translateY(0px) scale(1); }
-            50%      { transform: translateY(-16px) scale(1.02); }
+            0%,100% { transform: translateY(0px); }
+            50%      { transform: translateY(-14px); }
           }
           @keyframes fadeUp {
             from { opacity:0; transform:translateY(24px); }
@@ -33,26 +33,55 @@ export default function HomePage() {
           .anim-2 { animation: fadeUp .9s ease .3s both; }
           .anim-3 { animation: fadeUp .9s ease .5s both; }
           .anim-4 { animation: fadeUp .9s ease .7s both; }
-          .bottle-float { animation: floatBottle 5s ease-in-out 1s infinite; }
+          .bottle-float { animation: floatBottle 5s ease-in-out 1.2s infinite; }
         `}</style>
 
         {/* warm glow */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: 'radial-gradient(ellipse 60% 50% at 75% 55%, rgba(201,151,58,0.18) 0%, transparent 70%)' }} />
+          style={{ background: 'radial-gradient(ellipse 60% 50% at 72% 55%, rgba(201,151,58,0.2) 0%, transparent 70%)' }} />
 
-        <div className="relative max-w-6xl mx-auto w-full px-6 pt-28 pb-24
-                        flex flex-col md:flex-row items-center gap-12 md:gap-6">
+        <div className="relative max-w-6xl mx-auto w-full px-6 pt-6 pb-16
+                        flex flex-col md:flex-row items-center gap-6">
 
-          {/* ── LEFT: copy ── */}
-          <div className="flex-1 z-10 text-center md:text-left">
-            <p className="anim-1 font-mono text-[10px] tracking-[0.32em] uppercase text-[#c9973a] mb-6">
+          {/* bottle first on mobile, right on desktop */}
+          <div className="bottle-float flex-none flex justify-center md:justify-end
+                          order-1 md:order-2 md:flex-1">
+            <div className="relative w-[150px] sm:w-[190px] md:w-[320px]"
+              style={{ aspectRatio: '3/4' }}>
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div style={{
+                  width:'180px', height:'180px', borderRadius:'50%',
+                  background:'radial-gradient(circle, rgba(201,151,58,0.25) 0%, transparent 65%)',
+                  filter:'blur(30px)',
+                }} />
+              </div>
+              <Image
+                src="/images/ros.jpg"
+                alt="ROS Cologne by Joda Beauty Line"
+                fill
+                className="object-contain"
+                style={{ filter:'drop-shadow(0 20px 40px rgba(0,0,0,0.5))' }}
+                priority
+              />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2
+                              bg-[#2c1f0e]/90 border border-[#c9973a]/40
+                              px-4 py-2 text-center whitespace-nowrap">
+                <div className="font-mono text-[7px] tracking-[0.25em] uppercase text-[#c9973a]">Featured Scent</div>
+                <div className="font-serif text-base text-[#f5f0e8]">ROS</div>
+              </div>
+            </div>
+          </div>
+
+          {/* copy */}
+          <div className="flex-1 z-10 text-center md:text-left order-2 md:order-1">
+            <p className="anim-1 font-mono text-[10px] tracking-[0.32em] uppercase text-[#c9973a] mb-5">
               Luxury Fragrances · Worldwide Shipping
             </p>
-            <h1 className="anim-2 font-serif text-[3.4rem] sm:text-7xl md:text-8xl font-light text-[#f5f0e8] leading-none mb-6">
+            <h1 className="anim-2 font-serif text-[3rem] sm:text-6xl md:text-8xl font-light text-[#f5f0e8] leading-none mb-5">
               Scent is<br />
               <em className="text-[#c9973a]" style={{fontStyle:'italic'}}>memory.</em>
             </h1>
-            <p className="anim-3 text-[#9a8e7e] text-base sm:text-lg leading-relaxed mb-10 max-w-md mx-auto md:mx-0">
+            <p className="anim-3 text-[#d4c9b8] text-sm sm:text-base leading-relaxed mb-8 max-w-md mx-auto md:mx-0">
               Premium perfumes and colognes crafted with the finest ingredients — for those who understand that a great fragrance is the most intimate form of self‑expression.
             </p>
             <div className="anim-4 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -66,62 +95,29 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-
-          {/* ── RIGHT: bottle on dark panel ── */}
-          <div className="flex-1 flex justify-center md:justify-end relative">
-            {/* dark card so multiply works perfectly */}
-            <div className="relative w-[260px] sm:w-[300px] md:w-[340px]"
-              style={{ aspectRatio: '3/4' }}>
-              {/* glow ring */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div style={{
-                  width:'240px', height:'240px', borderRadius:'50%',
-                  background:'radial-gradient(circle, rgba(201,151,58,0.3) 0%, transparent 65%)',
-                  filter:'blur(36px)',
-                }} />
-              </div>
-              {/* bottle — multiply removes any white bg */}
-              <div className="bottle-float relative w-full h-full">
-                <Image
-                  src="/images/ros.jpg"
-                  alt="ROS Cologne by Joda Beauty Line"
-                  fill
-                  className="object-contain"
-                  style={{ mixBlendMode:'multiply', filter:'drop-shadow(0 30px 50px rgba(0,0,0,0.9))' }}
-                  priority
-                />
-              </div>
-              {/* label badge */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 mb-2
-                              bg-[#0a0806]/80 border border-[#c9973a]/40 px-5 py-3 text-center backdrop-blur-sm whitespace-nowrap">
-                <div className="font-mono text-[8px] tracking-[0.25em] uppercase text-[#c9973a]">Featured Scent</div>
-                <div className="font-serif text-xl text-[#f5f0e8] mt-0.5">ROS</div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* scroll cue */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
-          <div className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#3d3328]">Scroll</div>
-          <div className="w-px h-7 bg-gradient-to-b from-[#3d3328] to-transparent" />
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+          <div className="font-mono text-[8px] tracking-[0.3em] uppercase text-[#8a7355]">Scroll</div>
+          <div className="w-px h-6 bg-gradient-to-b from-[#8a7355] to-transparent" />
         </div>
       </section>
 
       {/* ── TRUST BAR ── */}
-      <section className="bg-[#0a0806] border-y border-[#1e1a16]">
-        <div className="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-[#1e1a16]">
+      <section className="bg-[#241808] border-y border-[#3d2a10]">
+        <div className="max-w-6xl mx-auto px-5 py-5 grid grid-cols-2 md:grid-cols-4 gap-0 divide-x divide-[#3d2a10]">
           {[['100%','Authentic'],['Global','Shipping'],['Premium','Ingredients'],['5','Signature Scents']].map(([val, label]) => (
             <div key={label} className="text-center py-2 px-4">
               <div className="font-serif text-xl font-light text-[#c9973a]">{val}</div>
-              <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-[#3d3328] mt-1">{label}</div>
+              <div className="font-mono text-[9px] tracking-[0.18em] uppercase text-[#8a7355] mt-1">{label}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── MODEL SECTION ── */}
-      <section className="bg-[#0e0c0a] py-24 overflow-hidden">
+      <section className="bg-[#1a1008] py-24 overflow-hidden">
         <div className="max-w-6xl mx-auto px-5">
           <div className="text-center mb-14">
             <div className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-4">For Everyone</div>
@@ -133,13 +129,15 @@ export default function HomePage() {
 
             {/* ROS */}
             <div className="relative group overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              <Image src={MODEL_ROS} alt="Model wearing ROS Cologne by Joda Beauty Line"
-                fill className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-              {/* dark gradient overlay so multiply blend works on bottle */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/30 to-[#0a0806]/10" />
-              {/* bottle — no white box because background under it is dark */}
-              <div className="absolute bottom-36 left-1/2 -translate-x-1/2 w-28 h-40"
-                style={{ mixBlendMode:'multiply', filter:'drop-shadow(0 10px 30px rgba(0,0,0,1))' }}>
+              <Image
+                src={MODEL_ROS}
+                alt="Joda Beauty Line ROS Cologne — for the confident man"
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/20 to-transparent" />
+              <div className="absolute bottom-40 left-6 w-32 h-44"
+                style={{ mixBlendMode: 'multiply', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }}>
                 <Image src="/images/ros.jpg" alt="ROS Cologne bottle" fill className="object-contain" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -148,19 +146,23 @@ export default function HomePage() {
                 <p className="text-[#9a8e7e] text-sm mb-5">Calm and refreshing. Confident, clean, unforgettable.</p>
                 <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I want to order ROS Cologne")}`}
                   target="_blank" rel="noopener noreferrer"
-                  className="inline-block font-mono text-[9px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-6 py-3 hover:bg-[#e4bc58] transition-colors">
-                  Order Now
+                  className="inline-block font-mono text-[9px] tracking-[0.2em] uppercase border border-[#c9973a] text-[#c9973a] px-6 py-3 hover:bg-[#c9973a] hover:text-[#0a0806] transition-colors">
+                  Shop Now
                 </a>
               </div>
             </div>
 
             {/* Soie d'Or Oud */}
             <div className="relative group overflow-hidden" style={{ aspectRatio: '3/4' }}>
-              <Image src={MODEL_SOIE} alt="Model wearing Soie d'Or Oud by Joda Beauty Line"
-                fill className="object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/30 to-[#0a0806]/10" />
-              <div className="absolute bottom-36 left-1/2 -translate-x-1/2 w-28 h-40"
-                style={{ mixBlendMode:'multiply', filter:'drop-shadow(0 10px 30px rgba(0,0,0,1))' }}>
+              <Image
+                src={MODEL_SOIE}
+                alt="Joda Beauty Line Soie d'Or Oud — timeless elegance"
+                fill
+                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/20 to-transparent" />
+              <div className="absolute bottom-40 left-6 w-32 h-44"
+                style={{ mixBlendMode: 'multiply', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }}>
                 <Image src="/images/soie.jpg" alt="Soie d'Or Oud bottle" fill className="object-contain" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
@@ -169,8 +171,8 @@ export default function HomePage() {
                 <p className="text-[#9a8e7e] text-sm mb-5">Silken oud, smooth as silk, luminous as sunrise.</p>
                 <a href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hi! I want to order Soie d'Or Oud")}`}
                   target="_blank" rel="noopener noreferrer"
-                  className="inline-block font-mono text-[9px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-6 py-3 hover:bg-[#e4bc58] transition-colors">
-                  Order Now
+                  className="inline-block font-mono text-[9px] tracking-[0.2em] uppercase border border-[#c9973a] text-[#c9973a] px-6 py-3 hover:bg-[#c9973a] hover:text-[#0a0806] transition-colors">
+                  Shop Now
                 </a>
               </div>
             </div>
@@ -179,13 +181,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── ABOUT ── */}
+      {/* ── ABOUT ── light cream as requested */}
       <section className="py-24 bg-[#faf7f2]">
         <div className="max-w-6xl mx-auto px-5 grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="font-mono text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-5">About Us</div>
             <h2 className="font-serif text-5xl font-light text-[#0a0806] leading-tight mb-6">
-              Crafted for those<br /><em>who remember.</em>
+              Crafted for those<br /><em className="text-[#c9973a]">who remember.</em>
             </h2>
             <p className="text-[#6b6460] leading-relaxed mb-5">
               Joda Beauty Line was born from a belief that fragrance is more than scent — it is identity, mood, and memory. We create premium perfumes and colognes using fine-quality ingredients, blended with care for a rich, long-lasting experience.
@@ -213,7 +215,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── PRODUCTS ── */}
+      {/* ── PRODUCTS ── light beige as requested */}
       <section className="py-24 bg-[#f0ece4]">
         <div className="max-w-6xl mx-auto px-5">
           <div className="flex items-end justify-between mb-12">
