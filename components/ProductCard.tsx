@@ -22,15 +22,6 @@ export default function ProductCard({ product, priority = false }: Props) {
           className="object-cover product-img"
           priority={priority}
         />
-        {/* Quick order overlay on hover */}
-        <div className="absolute inset-0 bg-[#0a0806]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-          <a
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-6 py-3 hover:bg-[#e4bc58] transition-colors"
-          >
-            Order Now
           </a>
         </div>
       </div>
@@ -49,13 +40,6 @@ export default function ProductCard({ product, priority = false }: Props) {
         <div className="font-mono-dm text-[9px] tracking-[0.12em] text-[#9a8e7e] mb-4 border-t border-[#e8e0d0] pt-3">
           {product.notes}
         </div>
-        <a
-          href={waLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block text-center font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#0a0806] text-[#f5f0e8] py-3 hover:bg-[#c9973a] hover:text-[#0a0806] transition-colors duration-300"
-        >
-          Order via WhatsApp
         </a>
       </div>
     </div>
