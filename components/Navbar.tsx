@@ -48,14 +48,13 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <a
-            href={`https://wa.me/2349138479374`}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* ✅ FIX: Order Now links to /order page instead of WhatsApp */}
+          <Link
+            href="/order"
             className="font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-5 py-2.5 hover:bg-[#e4bc58] transition-colors duration-200"
           >
             Order Now
-          </a>
+          </Link>
         </nav>
 
         {/* Mobile hamburger */}
@@ -87,14 +86,14 @@ export default function Navbar() {
               {label}
             </Link>
           ))}
-          <a
-            href={`https://wa.me/2349138479374`}
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* ✅ FIX: Order Now links to /order page instead of WhatsApp */}
+          <Link
+            href="/order"
+            onClick={() => setOpen(false)}
             className="font-mono-dm text-[11px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-5 py-3 text-center"
           >
             Order Now
-          </a>
+          </Link>
         </nav>
       </div>
     </header>
