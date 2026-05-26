@@ -3,7 +3,7 @@ export interface Product {
   name: string
   tagline: string
   description: string
-  notes: string
+  notes?: string
   image: string
   whatsappMsg: string
 }
@@ -14,7 +14,6 @@ export const products: Product[] = [
     name: 'ROS',
     tagline: 'Premium Cologne for Men',
     description: 'Calm and refreshing fragrance that commands presence without demanding attention. Clean, confident, unforgettable.',
-    notes: 'Fresh Citrus · Marine · White Musk',
     image: '/images/ros.jpg',
     whatsappMsg: 'Hi! I want to order ROS Cologne',
   },
@@ -23,7 +22,6 @@ export const products: Product[] = [
     name: "Soie d'Or Oud",
     tagline: 'Silken Oud, Plant-Based',
     description: 'A liquid-gold glow of silken oud, smooth as silk and luminous as sunrise. Warm, radiant, and deeply feminine.',
-    notes: 'Silken Oud · Golden Amber · Jasmine',
     image: '/images/soie.jpg',
     whatsappMsg: "Hi! I want to order Soie d'Or Oud",
   },
@@ -32,7 +30,6 @@ export const products: Product[] = [
     name: 'ROS OUD',
     tagline: 'Oud & Essences',
     description: 'Seduction in every drop. Rich, velvety smoothness with oud and essences that linger long after you leave the room.',
-    notes: 'Dark Oud · Sandalwood · Vanilla Essence',
     image: '/images/ros-oud.jpg',
     whatsappMsg: 'Hi! I want to order ROS OUD',
   },
@@ -41,7 +38,6 @@ export const products: Product[] = [
     name: 'Le Mot',
     tagline: 'Subtle & Delicate',
     description: 'The word is Cologne. A fragrance that whispers rather than shouts — refined, poetic, and quietly powerful.',
-    notes: 'Bergamot · Iris · Cedar',
     image: '/images/le-mot.jpg',
     whatsappMsg: 'Hi! I want to order Le Mot Cologne',
   },
@@ -50,10 +46,11 @@ export const products: Product[] = [
     name: 'Oud',
     tagline: 'Oud · Cream Amber · Musk',
     description: 'Rich black oud with warm cream amber and soft musk. Deep and unforgettable — a fragrance that becomes your signature.',
-    notes: 'Black Oud · Cream Amber · Soft Musk',
+    notes: 'Black Oud · Cream Amber · White Musk',
     image: '/images/oud.jpg',
     whatsappMsg: 'Hi! I want to order Oud',
   },
 ]
 
 export const WHATSAPP_NUMBER = '2349138479374'
+
