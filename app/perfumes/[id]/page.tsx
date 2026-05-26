@@ -6,12 +6,11 @@ import { products } from '@/lib/products'
 import type { Metadata } from 'next'
 
 interface Props {
-  params: Promise<{ id: string }>
+  params: { id: string }
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { id } = await params
-  const product = products.find(p => p.id === id)
+  const product = products.find(p => p.id === params.id)
   if (!product) return {}
   return {
     title: `${product.name} | Joda Beauty Line`,
@@ -23,9 +22,8 @@ export async function generateStaticParams() {
   return products.map(p => ({ id: p.id }))
 }
 
-export default async function PerfumePage({ params }: Props) {
-  const { id } = await params
-  const product = products.find(p => p.id === id)
+export default function PerfumePage({ params }: Props) {
+  const product = products.find(p => p.id === params.id)
   if (!product) notFound()
 
   return (
