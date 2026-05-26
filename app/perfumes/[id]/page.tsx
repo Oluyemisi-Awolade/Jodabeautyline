@@ -2,15 +2,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import { products, WHATSAPP_NUMBER } from '@/lib/products'
+import { products } from '@/lib/products'
 import type { Metadata } from 'next'
 
 interface Props {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const product = products.find(p => p.id === params.id)
+  const { id } = await params
+  const product = products.find(p => p.id === id)
   if (!product) return {}
   return {
     title: `${product.name} | Joda Beauty Line`,
@@ -22,8 +23,9 @@ export async function generateStaticParams() {
   return products.map(p => ({ id: p.id }))
 }
 
-export default function PerfumePage({ params }: Props) {
-  const product = products.find(p => p.id === params.id)
+export default async function PerfumePage({ params }: Props) {
+  const { id } = await params
+  const product = products.find(p => p.id === id)
   if (!product) notFound()
 
   return (
@@ -93,4 +95,3 @@ export default function PerfumePage({ params }: Props) {
     </main>
   )
 }
-
