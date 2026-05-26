@@ -33,9 +33,11 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
         <p className="text-sm text-[#6b6460] leading-relaxed mb-3">
           {product.description}
         </p>
-        <div className="font-mono-dm text-[9px] tracking-[0.15em] uppercase text-[#9a8e7e] mb-4">
-          {product.notes}
-        </div>
+        {product.notes && (
+          <div className="font-mono-dm text-[9px] tracking-[0.15em] uppercase text-[#9a8e7e] mb-4">
+            {product.notes}
+          </div>
+        )}
         {/* Sizes */}
         <div className="flex gap-2 mt-auto">
           {['30ml', '50ml', '100ml'].map((size) => (
