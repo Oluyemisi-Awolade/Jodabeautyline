@@ -1,4 +1,3 @@
-// File path: app/perfumes/[id]/page.tsx
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -60,9 +59,11 @@ export default function PerfumePage({ params }: Props) {
             <p className="text-[#6b6460] leading-relaxed mb-4">
               {product.description}
             </p>
-            <div className="font-mono-dm text-[9px] tracking-[0.15em] uppercase text-[#9a8e7e] mb-8">
-              {product.notes}
-            </div>
+            {product.notes && (
+              <div className="font-mono-dm text-[9px] tracking-[0.15em] uppercase text-[#9a8e7e] mb-8">
+                {product.notes}
+              </div>
+            )}
 
             {/* Sizes */}
             <div className="mb-8">
