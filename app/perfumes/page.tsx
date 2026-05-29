@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import type { Metadata } from 'next'
 import { products } from '@/lib/products'
 import ProductCard from '@/components/ProductCard'
@@ -35,8 +36,7 @@ export default function PerfumesPage() {
         <div className="font-mono-dm text-[9px] tracking-[0.25em] uppercase text-[#c9973a] mb-4">Questions?</div>
         <p className="text-[#6b6460] mb-6">Not sure which fragrance is right for you? Message us — we'll help you choose.</p>
         <Link href="/order"
-          className="inline-block font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-8 py-4 hover:bg-[#e4bc58] transition-colors"
-        >  
+          className="inline-block font-mono-dm text-[10px] tracking-[0.2em] uppercase bg-[#c9973a] text-[#0a0806] px-8 py-4 hover:bg-[#e4bc58] transition-colors">
           Get Help Choosing
         </Link>
       </div>
