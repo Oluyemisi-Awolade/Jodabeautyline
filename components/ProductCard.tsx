@@ -39,7 +39,7 @@ export default function ProductCard({ product, priority = false }: ProductCardPr
           </div>
         )}
         {/* Sizes */}
-        <div className="flex gap-2 mt-auto">
+        <div className="flex flex-wrap gap-2 mt-auto">
           {['30ml', '50ml', '100ml'].map((size) => (
             <span key={size}
               className="font-mono-dm text-[9px] tracking-[0.15em] uppercase border border-[#d4cdc4] text-[#6b6460] px-2 py-1">
