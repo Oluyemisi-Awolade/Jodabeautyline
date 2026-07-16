@@ -6,7 +6,7 @@ import ProductCard from '@/components/ProductCard'
 
 export const metadata: Metadata = {
   title: 'Joda Beauty Line | Luxury Perfumes & Colognes | Worldwide Shipping',
-  description: "Discover Joda Beauty Line — premium perfumes and colognes crafted with fine ingredients. Shop ROS, Soie d'Or Oud, Le Mot, and more. Worldwide shipping available.",
+  description: "Discover Joda Beauty Line — premium perfumes and colognes crafted with fine ingredients. Shop Ros, Soie d'Or Oud, Le Mot, and more. Worldwide shipping available.",
 }
 
 const MODEL_ROS = '/images/handsome-man-looking-away-outside.jpg'
@@ -57,7 +57,7 @@ export default function HomePage() {
               </div>
               <Image
                 src="/images/ros.jpg"
-                alt="ROS Cologne by Joda Beauty Line"
+                alt="Ros Cologne by Joda Beauty Line"
                 fill
                 className="object-contain"
                 style={{ filter:'drop-shadow(0 20px 40px rgba(0,0,0,0.5))' }}
@@ -128,18 +128,18 @@ export default function HomePage() {
             <div className="relative group overflow-hidden" style={{ aspectRatio: '3/4' }}>
               <Image
                 src={MODEL_ROS}
-                alt="Joda Beauty Line ROS Cologne — for the confident man"
+                alt="Joda Beauty Line Ros Cologne — for the confident man"
                 fill
                 className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a0806] via-[#0a0806]/20 to-transparent" />
               <div className="absolute bottom-40 left-6 w-32 h-44"
                 style={{ mixBlendMode: 'multiply', filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.8))' }}>
-                <Image src="/images/ros.jpg" alt="ROS Cologne by Joda Beauty Line" fill className="object-contain" />
+                <Image src="/images/ros.jpg" alt="Ros Cologne by Joda Beauty Line" fill className="object-contain" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="font-mono-dm text-[9px] tracking-[0.2em] uppercase text-[#c9973a] mb-2">His Signature</div>
-                <div className="font-display text-3xl font-light text-[#f5f0e8] mb-1">ROS</div>
+                <div className="font-display text-3xl font-light text-[#f5f0e8] mb-1">Ros</div>
                 <p className="text-[#9a8e7e] text-sm mb-5">Calm and refreshing. Confident, clean, unforgettable.</p>
                 {/* ✅ FIX: links to /order instead of WhatsApp */}
                 <Link href="/order"
