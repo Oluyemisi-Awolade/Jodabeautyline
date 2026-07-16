@@ -11,11 +11,11 @@ export interface Product {
 export const products: Product[] = [
   {
     id: 'ros',
-    name: 'ROS',
+    name: 'Ros',
     tagline: 'Premium Cologne for Men',
     description: 'Calm and refreshing fragrance that commands presence without demanding attention. Clean, confident, unforgettable.',
     image: '/images/ros.jpg',
-    whatsappMsg: 'Hi! I want to order ROS Cologne',
+    whatsappMsg: 'Hi! I want to order Ros Cologne',
   },
   {
     id: 'soie-dor-oud',
@@ -27,11 +27,11 @@ export const products: Product[] = [
   },
   {
     id: 'ros-oud',
-    name: 'ROS OUD',
+    name: 'Ros Oud',
     tagline: 'Oud & Essences',
     description: 'Seduction in every drop. Rich, velvety smoothness with oud and essences that linger long after you leave the room.',
     image: '/images/ros-oud.jpg',
-    whatsappMsg: 'Hi! I want to order ROS OUD',
+    whatsappMsg: 'Hi! I want to order Ros Oud',
   },
   {
     id: 'le-mot',
