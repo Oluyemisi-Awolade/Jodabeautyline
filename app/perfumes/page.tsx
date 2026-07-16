@@ -5,7 +5,7 @@ import ProductCard from '@/components/ProductCard'
 
 export const metadata: Metadata = {
   title: 'Our Perfumes & Colognes | Joda Beauty Line',
-  description: "Shop the full Joda Beauty Line collection — ROS, Soie d'Or Oud, ROS OUD, Le Mot, and Oud. Premium fragrances with worldwide shipping.",
+  description: "Shop the full Joda Beauty Line collection — Ros, Soie d'Or Oud, Ros Oud, Le Mot, and Oud. Premium fragrances with worldwide shipping.",
 }
 
 export default function PerfumesPage() {
