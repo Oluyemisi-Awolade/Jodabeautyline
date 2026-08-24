@@ -51,7 +51,7 @@ export const products: Product[] = [
     whatsappMsg: 'Hi! I want to order Oud',
   },
   {
-    id: 'lumière',
+    id: 'lumiere',
     name: 'Lumière',
     tagline: 'Intense',
     description: 'A bold, radiant intensity that lingers in every space you enter. Deep, magnetic, and impossible to ignore.',
