@@ -44,7 +44,7 @@ export const products: Product[] = [
   {
     id: 'oud',
     name: 'Oud',
-    tagline: 'Oud · Cream Amber · Musk',
+    tagline: 'Oud · Cream Amber· Musk',
     description: 'Rich black oud with warm cream amber and soft musk. Deep and unforgettable — a fragrance that becomes your signature.',
     notes: 'Black Oud · Cream Amber · White Musk',
     image: '/images/oud.jpg',
@@ -53,7 +53,7 @@ export const products: Product[] = [
   {
     id: 'lumiere',
     name: 'Lumière',
-    tagline: 'Intense· Bright· Fresh· Musky Scent',
+    tagline: 'Intense· Bright·Fresh· Musky Scent',
     description: 'A bold, radiant intensity that lingers in every space you enter. Deep, magnetic, and impossible to ignore.',
     image: '/images/lumière.png',
     whatsappMsg: 'Hi! I want to order Lumière',
