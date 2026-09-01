@@ -53,7 +53,7 @@ export const products: Product[] = [
   {
     id: 'lumiere',
     name: 'Lumière',
-    tagline: 'Intense',
+    tagline: 'Intense · Bright · Fresh · Musky Scent',
     description: 'A bold, radiant intensity that lingers in every space you enter. Deep, magnetic, and impossible to ignore.',
     image: '/images/lumière.png',
     whatsappMsg: 'Hi! I want to order Lumière',
